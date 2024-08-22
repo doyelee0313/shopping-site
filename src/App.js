@@ -4,6 +4,8 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
+import { useEffect, useState } from 'react';
+import PrivateRoute from './route/PrivateRoute';
 
 //1. 전체 상품 페이지, 로그인 페이지, 상품 상세 페이지
 //1-1. nav bar 만들기
@@ -15,13 +17,14 @@ import Navbar from './component/Navbar';
 //7. 로그인하면 로그아웃, 로그아웃하면 로그인 볼 수 있음
 //8. 상품 검색 가능
 function App() {
+  const [authenticate, setAuthenticate] = useState(false); //true면 로그인 가능 아니면 안됨
   return (
     <div className="App">
       <Navbar></Navbar>
       <Routes>
       <Route path="/" element={<ProductAll/>}></Route>
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/product/:id" element={<ProductDetail/>}></Route>
+      <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}></Route>
+      <Route path="/product/:id" element={<PrivateRoute authenticate={authenticate}/>}></Route>
       </Routes>
     </div>
   );

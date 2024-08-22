@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import ProductCard from '../component/ProductCard';
+import { Container, Row, Col } from "react-bootstrap";
 
 const ProductAll = () => {
     // Define the async function to get products
@@ -18,9 +19,13 @@ const ProductAll = () => {
     }, []); // Empty dependency array means this runs once on mount
 
     return (
-        <div>
-            <ProductCard></ProductCard>
-        </div>
+        <Container>
+            <Row>
+                {productList.map((menu) => (
+                    <Col lg={3}><ProductCard item={menu}></ProductCard></Col>
+                ))}
+            </Row>
+        </Container>
     );
 }
 
