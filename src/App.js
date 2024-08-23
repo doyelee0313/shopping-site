@@ -20,7 +20,7 @@ function App() {
   const [authenticate, setAuthenticate] = useState(false); //true면 로그인 가능 아니면 안됨
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
       <Route path="/" element={<ProductAll/>}></Route>
       <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}></Route>

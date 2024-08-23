@@ -2,12 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({ authenticate, setAuthenticate}) => {
+    let [width, setWidth] = useState(0);
     const menuList = ['Women', 'Men', 'Kids'];
     const navigate = useNavigate();
     const goToLogin=()=>{
-        navigate("\login")
+        navigate("/login")
     }
     const search = (event) => {
         if (event.key === "Enter") {
@@ -18,12 +22,37 @@ const Navbar = () => {
             navigate(`/?q=${keyword}`);
         }
     }
+    const openMenu = () => setWidth(250); 
+    const closeMenu = () => setWidth(0);
   return (
     <div>
+        <div className="side-menu" style={{ width: `${width}px` }}>
+                <button className="closebtn" onClick={closeMenu}>
+                    &times;
+                </button>
+                <div className="side-menu-list">
+                    {menuList.map((menu, index) => (
+                        <button key={index} onClick={() => navigate(`/${menu.toLowerCase()}`)}>
+                            {menu}
+                        </button>
+                    ))}
+                </div>
+        </div>
         <div className='header-actions'>
-            <div class="login-button" onClick={goToLogin}>
-                <FontAwesomeIcon icon={faUser} />
-                <div>login</div>
+            <div className="burger-menu hide">
+            <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
+            </div>
+            <div className="login-button" onClick={goToLogin}>
+            <FontAwesomeIcon icon={faUser} />
+                {authenticate ? (
+                    <div onClick={() => setAuthenticate(false)}>
+                        <span style={{ cursor: "pointer" }}>로그아웃</span>
+                    </div>
+                    ) : (
+                    <div onClick={() => navigate("/login")}>
+                        <span style={{ cursor: "pointer" }}>로그인</span>
+                    </div>
+                    )}
             </div>
 
             <div class="group">
@@ -33,7 +62,9 @@ const Navbar = () => {
 
         </div>
         <div className="menu-area">
+            <Link to="/">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Gentle_monster_logo.png"></img>
+            </Link>
         </div>
         <div className="menu-area">
             <ul className="menu-list">
