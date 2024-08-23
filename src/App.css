@@ -1,3 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px; /* Adjust the gap between the items */
+}
+
 .login-button{
   display: flex;
   justify-content: end;
@@ -203,5 +214,15 @@ button {
 .conscious {
   background-color: pink; /* Green or another color for "Conscious Choice" */
 }
+
+.product-img{
+  display: flex;
+  justify-content: end;
+}
  
- 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Distributes items evenly vertically */
+  height: 800px; /* Adjust height as needed */
+}
