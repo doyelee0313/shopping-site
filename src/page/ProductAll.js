@@ -10,7 +10,7 @@ const ProductAll = () => {
     const [query, setQuery] = useSearchParams();
     const getProducts = async () => {
         let searchQuery = query.get("q");
-        const url = `https://my-json-server.typicode.com/doyelee0313/shoppingwebsite/products?q=${searchQuery}`; //json server 에서 알아서 찾아줌
+        const url = `https://my-json-server.typicode.com/doyelee0313/shopping-site/products?q=${searchQuery}`; //json server 에서 알아서 찾아줌
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
