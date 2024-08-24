@@ -267,3 +267,51 @@ button {
   background-color: beige;
   border-radius: 3px;
 } 
+
+/* General styles for the logo */
+.menu-area img {
+  max-width: 100%; /* Ensure the logo does not exceed its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-area {
+      text-align: center; /* Center-align logo on mobile */
+      padding: 10px; /* Add padding if needed */
+  }
+
+  .menu-area img {
+      width: 80%; /* Adjust width as necessary */
+      max-width: 200px; /* Set a maximum width */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-area img {
+      width: 70%; /* Further adjust for smaller screens */
+  }
+}
+
+/* Ensure proper styling for the login button */
+.login-button {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center-align items vertically */
+  justify-content: center; /* Center-align items horizontally */
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Ensure the text inside the button is not rotated or misaligned */
+.login-button span {
+  margin-left: 8px; /* Add some space between the icon and text */
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+  font-size: 14px; /* Adjust font size if needed */
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+  .login-button {
+      font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}
