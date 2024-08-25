@@ -315,3 +315,64 @@ button {
       font-size: 12px; /* Adjust font size for smaller screens */
   }
 }
+
+/* ProductDetail.css */
+
+/* Ensure images are responsive */
+.product-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Style for the product image column */
+.product-detail .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the content column */
+.content {
+  text-align: center; /* Center-align text within the content div */
+}
+
+/* Responsive title and price */
+.product-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+/* Style for the dropdown and button */
+.dropdown-button {
+  margin-bottom: 15px;
+}
+
+.buy-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 576px) {
+  .product-title {
+    font-size: 1.25rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+}
+
